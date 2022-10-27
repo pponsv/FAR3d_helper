@@ -21,7 +21,7 @@ source_input_model = f"{source_folder}/Input_Model"
 source_input_eq    = f"{source_folder}/Eq_NBI"
 source_input_profs = f"{source_folder}/TJII_NBIx.txt"
 source_exec        = f"{source_folder}/xfar3d"
-source_run         = f"{source_folder}/test.sh"
+source_run         = f"{source_folder}/TJII.sh"
 
 cwd                = os.getcwd()
 
@@ -41,7 +41,7 @@ for tbeta in betas:
         subprocess.run(["ln", "-sf", source_input_eq,    f"{tfoldername}/Eq_NBI"])
         subprocess.run(["ln", "-sf", source_input_profs, f"{tfoldername}/TJII_NBIx.txt"])
         subprocess.run(["ln", "-sf", source_exec,        f"{tfoldername}/xfar3d"])
-        subprocess.run(["ln", "-sf", source_run,         f"{tfoldername}/test.sh"])
+        subprocess.run(["ln", "-sf", source_run,         f"{tfoldername}/TJII.sh"])
         ## Change executable
         with open(out_input_model, 'r') as tfile:
             ndata    = tfile.readlines()
