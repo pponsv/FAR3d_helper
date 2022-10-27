@@ -27,8 +27,8 @@ cwd                = os.getcwd()
 
 dens   = 1.15E19 # 1e20 m^-3
 # Parameters to scan
-betas  = np.linspace(0.01, 0.03, 3) # beta_fast
-e_fast = np.linspace(5, 30, 3) # in KeV
+betas  = np.linspace(0.01, 0.03, 2) # beta_fast
+e_fast = np.linspace(5, 30, 2) # in KeV
 
 for tbeta in betas:
     for te_fast in e_fast:
