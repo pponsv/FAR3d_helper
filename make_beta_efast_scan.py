@@ -30,9 +30,11 @@ dens   = 1.15E19 # 1e20 m^-3
 betas  = np.linspace(0.01, 0.03, 2) # beta_fast
 e_fast = np.linspace(5, 30, 2) # in KeV
 
+tfolders = []
 for tbeta in betas:
     for te_fast in e_fast:
         tfoldername     = f"beta_{tbeta:.3f}_efast_{te_fast:.3f}"
+        tfolders.append(f"{tfoldername}\t{tbeta:.3f}\t{te_fast:.3f}\n")
         out_input_model = os.path.abspath(f"./{tfoldername}/Input_Model")
         ## Make folder, copy Input_Model
         subprocess.run(["mkdir", "-p", tfoldername])
@@ -56,6 +58,9 @@ for tbeta in betas:
             nfile.writelines(ndata)
         ## Run bash file
         os.chdir(tfoldername)
-        subprocess.Popen("./TJII.sh")
+        # subprocess.Popen("./TJII.sh")
         os.chdir(cwd)
+
+with open("tfolders.txt", 'w') as tfile:
+    tfile.writelines(tfolders)
 # print(ndata)
