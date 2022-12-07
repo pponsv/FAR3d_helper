@@ -26,7 +26,7 @@ for folder in foldernames:
         ndata[tline] = "1\n"
         tline = [idx for idx,line in enumerate(ndata) if 'omegar: ' in line][0] + 1
         ndata[tline] = f"{omega:.5f}\n"
-        with open(out_input_model+"_mod", 'w') as nfile:
+        with open(out_input_model, 'w') as nfile:
             ndata = nfile.writelines(ndata)
     except Exception as e:
         print(e)
